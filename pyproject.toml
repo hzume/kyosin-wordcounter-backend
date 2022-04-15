@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "kyosin-wordcounter-backend"
+version = "0.1.0"
+description = ""
+authors = ["Yota Hashizume <yota040@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+nltk = "^3.7"
+fastapi = "^0.75.1"
+uvicorn = "^0.17.6"
+pandas = "^1.4.2"
+PyYAML = "^6.0"
+requests = "^2.27.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
