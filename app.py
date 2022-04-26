@@ -30,9 +30,16 @@ def read_root():
 @app.post("/read_item/")
 def read_item(item: Item):
     try:
-        output_df = pd.read_csv(item.output, encoding="utf_8_sig")
+        output_df = pd.read_csv(item.output, encoding="shift-jis")
+    except UnicodeDecodeError:
+        try:
+            output_df = pd.read_csv(item.output, encoding="utf-8")
+        except Exception as e:
+            raise e
     except FileNotFoundError as e:
         raise HTTPException(status_code=406, detail="Output file not found")
+    except Exception as e:
+        raise e
 
     try:
         morph = nltk.word_tokenize(item.text)
